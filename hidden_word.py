@@ -10,7 +10,7 @@ def hidden_word_topic(update: Update, context: CallbackContext):
     elif whattopic == 2:
         update.message.reply_text('The topic is FRUITS')
     elif whattopic == 3:
-        update.message.reply_text('The topic is CONTRIES')
+        update.message.reply_text('The topic is COUNTRIES')
    
 def word():
     list1 = ['cat','dog','pig']
