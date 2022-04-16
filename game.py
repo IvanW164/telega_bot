@@ -6,10 +6,11 @@ import re
 from guess_word import word_competion
 
 
-whattopic = random.randint(1, 4)
+gamePlay = True
 
 def hidden_word_topic(update: Update, context: CallbackContext):
     global censured_word
+    whattopic = random.randint(1, 4)
     if whattopic == 1:
         update.message.reply_text('The topic is ANIMALS')
     elif whattopic == 2:
@@ -17,8 +18,9 @@ def hidden_word_topic(update: Update, context: CallbackContext):
     elif whattopic == 3:
         update.message.reply_text('The topic is CONTRIES')
     update.message.reply_text(f'{censured_word}, please enter /game (space) a letter you want to guess')
+    return whattopic
 
-def word_choise():
+def word_choise(whattopic):
     list1 = ['cat','dog','pig']
     list2 = ['apple', 'banana', 'orange']
     list3 = ['spain', 'france', 'germany']
@@ -35,15 +37,12 @@ def word_choise():
         word = list3[i]
         return word
 
-word = word_choise()
+word = word_choise(hidden_word_topic())
 censured_word = re.sub('[a-z]','*',word)
-count = 8
 
 def game(update: Update, context: CallbackContext):
-    global count
-    global censured_word
-    
-    while True:
+    count = 8
+    while gamePlay == True:
         msg = update.message.text
         reslist = msg.split()        
         if reslist[1] in word:
@@ -52,8 +51,8 @@ def game(update: Update, context: CallbackContext):
             if censured_word.find('*') != -1:
                 update.message.reply_text(f'{censured_word}, please enter /game (space) a letter you want to guess')
             else:
-                update.message.reply_text('Congratulations! You are win! \n Do you want to guess again?')
-            break    
+                update.message.reply_text('Congratulations! You are win!')
+                gamePlay = False
         else:
             update.message.reply_text(f'Your letter ({reslist[1]}) is NOT inside your word')
             count = count - 1
@@ -83,9 +82,9 @@ def game(update: Update, context: CallbackContext):
                 update.message.reply_text('You dont have more lifes, you are hanged')
                 break
 
-
-def again(update: Update, context: CallbackContext):
-    update.message.reply_text('Do you want to guess again?')
-
-
-    
+def again():
+    global censured_word
+    global gamePlay
+    word = word_choise(hidden_word_topic())
+    censured_word = re.sub('[a-z]','*',word)
+    game()
