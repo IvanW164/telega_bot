@@ -1,3 +1,5 @@
+
+
 def word_competion(letter, word_user, hid_word):
     res_str = ""
     for i in range(len(hid_word)):
