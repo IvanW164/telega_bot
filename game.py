@@ -7,11 +7,11 @@ import hidden_word as hd
 
 
 whattopic = random.randint(1, 4)
-word = hd.choise_hidden_word(whattopic)
+word = hd.choice_hidden_word(whattopic)
 censured_word = re.sub('[a-z]','*', word)
 # censured_word = hd.replace_word(word)
 
-def choise_topic(update: Update, context: CallbackContext):
+def choice_topic(update: Update, context: CallbackContext):
     list_topics = ['ANIMALS','FRUITS','COUNTRIES']
     if whattopic == 1:
         update.message.reply_text(f'The topic is {list_topics[whattopic-1]}')

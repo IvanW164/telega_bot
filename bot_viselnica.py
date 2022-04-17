@@ -12,7 +12,7 @@ updater = Updater('5311753371:AAE_hvFU2BT3XtKv5yvuMj45bZULxT8u0kc')
 
 
 updater.dispatcher.add_handler(CommandHandler('hello', hello))
-updater.dispatcher.add_handler(CommandHandler('topic', gm.choise_topic))
+updater.dispatcher.add_handler(CommandHandler('topic', gm.choice_topic))
 updater.dispatcher.add_handler(CommandHandler('game', gm.game))
 
 print('server_started')
