@@ -12,9 +12,9 @@ updater = Updater('5311753371:AAE_hvFU2BT3XtKv5yvuMj45bZULxT8u0kc')
 
 
 updater.dispatcher.add_handler(CommandHandler('hello', hello))
-updater.dispatcher.add_handler(CommandHandler('topic', hd.choise_topic))
+updater.dispatcher.add_handler(CommandHandler('topic', gm.choise_topic))
 updater.dispatcher.add_handler(CommandHandler('game', gm.game))
-updater.dispatcher.add_handler(CommandHandler('again', gm.again))
+
 print('server_started')
 
 updater.start_polling()
