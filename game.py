@@ -27,6 +27,7 @@ alphabet = gw.alphabet_method()
 def game(update: Update, context: CallbackContext):
     global word
     global censured_word
+    global count
     msg = update.message.text
     reslist = msg.lower().split()
     if reslist == ["/game"]:
