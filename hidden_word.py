@@ -1,6 +1,6 @@
 import random
 
-def choice_hidden_word(number):
+
     list1 = ['cat','dog','pig']
     list2 = ['apple', 'banana', 'orange']
     list3 = ['spain', 'france', 'germany']
