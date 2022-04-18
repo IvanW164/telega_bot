@@ -1,34 +1,19 @@
 import random
-from telegram import Update
-from telegram.ext import Updater, CommandHandler, CallbackContext
 
-whattopic = random.randint(1, 4)
 
-def hidden_word_topic(update: Update, context: CallbackContext):
-    if whattopic == 1:
-        update.message.reply_text('The topic is ANIMALS')
-    elif whattopic == 2:
-        update.message.reply_text('The topic is FRUITS')
-    elif whattopic == 3:
-        update.message.reply_text('The topic is COUNTRIES')
-   
-def word():
     list1 = ['cat','dog','pig']
     list2 = ['apple', 'banana', 'orange']
     list3 = ['spain', 'france', 'germany']
-    if whattopic == 1:
-        i = random.randint(0, 2)
-        word = list1[i]
-        return word
-    elif whattopic == 2:
-        i = random.randint(0, 2)
-        word = list2[i]
-        return word
-    elif whattopic == 3:
-        i = random.randint(0, 2)
-        word = list3[i]
-        return word
+    if number == 1:
+        some_word = random.choice(list1)
+    elif number == 2:
+        some_word = random.choice(list2)
+    elif number == 3:
+        some_word = random.choice(list3)
+    return some_word
 
-
-
-
+# def replace_word(some_word):
+#     res_word = ""
+#     for i in range(len(some_word)):
+#         res_word = res_word + "*"
+#     return res_word

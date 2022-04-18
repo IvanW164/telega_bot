@@ -3,15 +3,18 @@ from telegram.ext import Updater, CommandHandler, CallbackContext
 import hidden_word as hd
 import game as gm
 
+
 def hello(update: Update, context: CallbackContext) -> None:
     update.message.reply_text(f'Hello {update.effective_user.first_name}')
 
 
 updater = Updater('5311753371:AAE_hvFU2BT3XtKv5yvuMj45bZULxT8u0kc')
 
+
 updater.dispatcher.add_handler(CommandHandler('hello', hello))
-updater.dispatcher.add_handler(CommandHandler('topic', hd.hidden_word_topic))
+updater.dispatcher.add_handler(CommandHandler('topic', gm.choice_topic))
 updater.dispatcher.add_handler(CommandHandler('game', gm.game))
+
 print('server_started')
 
 updater.start_polling()
